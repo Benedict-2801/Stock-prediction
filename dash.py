@@ -111,15 +111,16 @@ def display_stock_info(datas):
                     latest_price = datas[symbol]['Close'].iloc[-1] if not datas[symbol]['Close'].empty else 'No data'
                     st.write(f"{symbol}: ${latest_price:.2f}" if isinstance(latest_price, (int, float)) else latest_price)
 
-def dashboard_content():
+def dashboard_content(placeholder_1,placeholder_2):
     apply_custom_css()  # Apply custom CSS
 
     st.title('Stock Dashboard')
 
     with st.sidebar:
-        chart_type = st.selectbox('Select Chart Type for Combined Data', ['Scatter', 'Area', 'Candlestick'])
-        selected_symbol = st.selectbox('Select Stock Symbol for Detailed View', top_symbols + ['None'])
-
+        placeholder_1 = st.selectbox('Select Chart Type for Combined Data', ['Scatter', 'Area', 'Candlestick'])
+        placeholder_2 = st.selectbox('Select Stock Symbol for Detailed View', top_symbols + ['None'])
+        chart_type=placeholder_1
+        selected_symbol=placeholder_2
     datas = fetch_data(top_symbols)
     
     if datas:
