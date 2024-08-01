@@ -82,10 +82,15 @@ def main_content():
                     ns.chat_bot(model)
 
                 if not st.session_state.chatbot_active:
-                    handle_data_input()
+                    if st.session_state.navbar == "dashboard":
+                        st.session_state.placeholder_1=st.empty
+                        st.session_state.placeholder_2=st.empty
+                        
+                    else:
+                      handle_data_input()
 
         if st.session_state.navbar == "dashboard":
-            dash.dashboard_content()
+              dash.dashboard_content(st.session_state.placeholder_1,st.session_state.placeholder_2)
         else:
             handle_analysis_and_prediction(model)
     except Exception as e:
