@@ -165,4 +165,5 @@ def dashboard_content(placeholder_1,placeholder_2):
         st.write("Waiting for market open at 9:30 AM or no data available.")
 
 if __name__ == "__main__":
+    print("execution statrted")
     dashboard_content()
